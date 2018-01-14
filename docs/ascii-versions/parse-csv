@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# I cleaned up spreadsheet data for the Denon AVR S720W, exported to
+# csv, cleaned up some more. This code serves to extract command codes
+# and parameters.  There may be some errors, particularly in the
+# response examples.
+
+require 'csv'
+
+# I've cleaned this CSV file of empty lines, cruft, and headings, which are (were)
+#  0        1     2          3            4           5          6
+# ["CLASS", nil, "COMMAND", "PARAMETER", "function", "example", "RESPONSE(example)", nil, nil, nil, nil, nil]
+#
+# counts of above non-nil elements
+# [8, 0, 26, 375, 284, 380, 396, 0, 0, 0, 0, 0]
+
+csv = CSV.read("COMMAND and RESPONSE list -Table 1.csv")
+
+# state: last variables read, for implied hierarchy
+
+command_class = 'Power'  # missing from spreadsheet
+COMMAND_CLASS = 0
+
+command_code = nil
+COMMAND_CODE = 2
+
+command_parameter = nil
+COMMAND_PARAMETER = 3
+
+command_function = nil
+COMMAND_FUNCTION = 4
+
+command_example = nil
+COMMAND_EXAMPLE = 5
+
+command_response_example = nil
+COMMAND_RESPONSE_EXAMPLE = 6
+
+def cleanup(str)
+  return str unless str.class == String
+  return str.strip
+end
+
+csv.each do |row|
+
+  if row[COMMAND_CLASS]
+    command_class = row[COMMAND_CLASS].strip
+    command_code = nil
+    command_parameter = nil
+    command_function = nil
+    command_example = nil
+    command_response_example = nil
+  end
+
+  command_code             = cleanup(row[COMMAND_CODE] || command_code)
+  command_parameter        = cleanup(row[COMMAND_PARAMETER] || command_parameter)
+  command_function         = cleanup(row[COMMAND_FUNCTION] || command_function)
+  command_example          = cleanup(row[COMMAND_EXAMPLE] || command_example)
+  command_response_example = cleanup(row[COMMAND_RESPONSE_EXAMPLE] || command_response_example)
+
+  p [ command_class, command_code, command_parameter, command_function, command_example, command_response_example ]
+end

@@ -1,0 +1,592 @@
+,,PW,ON,POWER ON/STANDBY change,PWON<CR>,<-,,,,,
+,,,STANDBY,,PWSTANDBY<CR>,<-,,,,,
+,,,?,Return PW Status,PW?<CR>,,,,,,
+MAIN ZONE Control,,MV,UP,"MASTER VOLUME UP/DOWN , direct change to **dB",MVUP<CR>,MV80<CR>,,,,,
+,,,DOWN,,MVDOWN<CR>,MV80<CR>,,,,,
+,,,**,"**:00 to 98 by ASCII , 80=80(0dB), 00=0(---dB)(MIN)
+
+Refer to ""Volume_CMD""sheet",MV80<CR>,<-,,,,,
+,,,?,Return MV Status,MV?<CR>,,,,,,
+,,CV,FL UP,"CHANNEL VOLUME UP/DOWN , direct change to **dB",CVFL UP<CR>,CVFL 50<CR>,,,,,
+,,,FL DOWN,---FRONT Lch,CVFL DOWN<CR>,CVFL 50<CR>,,,,,
+,,,FL **,"**:38 to 62 by ASCII , 50=0dB",CVFL 50<CR>,<-,,,,,
+,,,FR UP,,CVFR UP<CR>,CVFR 50<CR>,,,,,
+,,,FR DOWN,---FRONT Rch,CVFR DOWN<CR>,CVFR 50<CR>,,,,,
+,,,FR **,"**:38 to 62 by ASCII , 50=0dB",CVFR 50<CR>,<-,,,,,
+,,,C UP,,CVC UP<CR>,CVC 50<CR>,,,,,
+,,,C DOWN,---CENTERch ,CVC DOWN<CR>,CVC 50<CR>,,,,,
+,,,C **,"**:38 to 62 by ASCII , 50=0dB",CVC 50<CR>,<-,,,,,
+,,,SW UP,,CVSW UP<CR>,CVSW 50<CR>,,,,,
+,,,SW DOWN,---SUBWOOFER ch   ,CVSW DOWN<CR>,CVSW 50<CR>,,,,,
+,,,SW **,"**:00,38 to 62 by ASCII , 50=0dB,00=OFF",CVSW 50<CR>,<-,,,,,
+,,,SL UP,,CVSL UP<CR>,CVSL 50<CR>,,,,,
+,,,SL DOWN,---SURROUND Lch,CVSL DOWN<CR>,CVSL 50<CR>,,,,,
+,,,SL **,"**:38 to 62 by ASCII , 50=0dB",CVSL 50<CR>,<-,,,,,
+,,,SR UP,,CVSR UP<CR>,CVSR 50<CR>,,,,,
+,,,SR DOWN,---SURROUND Rch,CVSR DOWN<CR>,CVSR 50<CR>,,,,,
+,,,SR **,"**:38 to 62 by ASCII , 50=0dB",CVSR 50<CR>,<-,,,,,
+,,,SBL UP,---SURROUND BACK Lch (SBch 2SP),CVSBL UP<CR>,CVSBL 50<CR>,,,,,
+,,,SBL DOWN,,CVSBL DOWN<CR>,CVSBL 50<CR>,,,,,
+,,,SBL **,"**:38 to 62 by ASCII , 50=0dB",CVSBL 50<CR>,<-,,,,,
+,,,SBR UP,---SURROUND BACK Rch (SBch 2SP),CVSBR UP<CR>,CVSBR 50<CR>,,,,,
+,,,SBR DOWN,,CVSBR DOWN<CR>,CVSBR 50<CR>,,,,,
+,,,SBR **,"**:38 to 62 by ASCII , 50=0dB",CVSBR 50<CR>,<-,,,,,
+,,,SB UP,---SURROUND BACK ch      (SBch 1SP),CVSB UP<CR>,CVSB 50<CR>,,,,,
+,,,SB DOWN,,CVSB DOWN<CR>,CVSB 50<CR>,,,,,
+,,,SB **,"**:38 to 62 by ASCII , 50=0dB",CVSB 50<CR>,<-,,,,,
+,,,FHL UP,---FRONT HEIGHT Lch  ,CVFHL UP<CR>,CVFHL 50,,,,,
+,,,FHL DOWN,,CVFHL DOWN<CR>,CVFHL 50,,,,,
+,,,FHL **,"**:38 to 62 by ASCII , 50=0dB",CVFHL 50<CR>,<-,,,,,
+,,,FHR UP,---FRONT HEIGHT Rch  ,CVFHR UP<CR>,CVFHR 50,,,,,
+,,,FHR DOWN,,CVFHR DOWN<CR>,CVFHR 50,,,,,
+,,,FHR **,"**:38 to 62 by ASCII , 50=0dB",CVFHR 50<CR>,<-,,,,,
+,,,TFL UP,---TOP FRONT Lch,CVTFL UP<CR>,CVTFL 50,,,,,
+,,,TFL DOWN,,CVTFL DOWN<CR>,CVTFL 50,,,,,
+,,,TFL **,"**:38 to 62 by ASCII , 50=0dB",CVTFL 50<CR>,<-,,,,,
+,,,TFR UP,---TOP FRONT Rch,CVTFR UP<CR>,CVTFR 50,,,,,
+,,,TFR DOWN,,CVTFR DOWN<CR>,CVTFR 50,,,,,
+,,,TFR **,"**:38 to 62 by ASCII , 50=0dB",CVTFR 50<CR>,<-,,,,,
+,,,TML UP,---TOP MIDDLE Lch,CVTML UP<CR>,CVTML 50,,,,,
+,,,TML DOWN,,CVTML DOWN<CR>,CVTML 50,,,,,
+,,,TML **,"**:38 to 62 by ASCII , 50=0dB",CVTML 50<CR>,<-,,,,,
+,,,TMR UP,---TOP MIDDLE Rch,CVTMR UP<CR>,CVTMR 50,,,,,
+,,,TMR DOWN,,CVTMR DOWN<CR>,CVTMR 50,,,,,
+,,,TMR **,"**:38 to 62 by ASCII , 50=0dB",CVTMR 50<CR>,<-,,,,,
+,,,FDL UP,---FRONT DOLBY Lch,CVFDL UP<CR>,CVFDL 50,,,,,
+,,,FDL DOWN,,CVFDL DOWN<CR>,CVFDL 50,,,,,
+,,,FDL **,"**:38 to 62 by ASCII , 50=0dB",CVFDL 50<CR>,<-,,,,,
+,,,FDR UP,---FRONT DOLBY Rch,CVFDR UP<CR>,CVFDR 50,,,,,
+,,,FDR DOWN,,CVFDR DOWN<CR>,CVFDR 50,,,,,
+,,,FDR **,"**:38 to 62 by ASCII , 50=0dB",CVFDR 50<CR>,<-,,,,,
+,,,SDL UP,---SURROUND DOLBY Lch,CVSDL UP<CR>,CVSDL 50,,,,,
+,,,SDL DOWN,,CVSDL DOWN<CR>,CVSDL 50,,,,,
+,,,SDL **,"**:38 to 62 by ASCII , 50=0dB",CVSDL 50<CR>,<-,,,,,
+,,,SDR UP,---SURROUND DOLBY Rch,CVSDR UP<CR>,CVSDR 50,,,,,
+,,,SDR DOWN,,CVSDR DOWN<CR>,CVSDR 50,,,,,
+,,,SDR **,"**:38 to 62 by ASCII , 50=0dB",CVSDR 50<CR>,<-,,,,,
+,,,ZRL,Reset all channel level to the factory defaults,CVZRL<CR>,"CVFL 50<CR>
+:
+:
+CVEND<CR>",,,,,
+,,,?,Return CV Status,"CV?<CR>
+
+","※Only the speaker which there is on the speaker configration replies
+(e.g.）
+CVFL 62<CR>
+:
+:
+CVEND<CR>　",,,,,
+,,MU,ON,OUTPUT MUTE ON/OFF change,MUON<CR>,<-,,,,,
+,,,OFF,,MUOFF<CR>,<-,,,,,
+,,,?,Return MU Status,MU?<CR>,,,,,,
+,,,TUNER,,SITUNER<CR>,<-,,,,,
+,,,DVD,"* X1300,S720:DVD/Blu-ray is selected",SIDVD<CR>,<-,,,,,
+,,,BD,---Blu-ray,SIBD<CR>,<-,,,,,
+,,,TV,---TV AUDIO,SITV<CR>,<-,,,,,
+,,,SAT/CBL,---CBL/SAT,SISAT/CBL<CR>,<-,,,,,
+,,,MPLAY,---MEDIA PLAYER,SIMPLAY<CR>,<-,,,,,
+,,,GAME,,SIGAME<CR>,<-,,,,,
+,,,NET,* 2016 AVR: Online Music is selected,SINET<CR>,<-,,,,,
+,,,PANDORA,(North America model Only),SIPANDORA<CR>,<-,,,,,
+,,,SIRIUSXM,(North America model Only),SISIRIUSXM<CR>,<-,,,,,
+,,,IRADIO,,SIIRADIO<CR>,<-,,,,,
+,,,SERVER,,SISERVER<CR>,<-,,,,,
+,,,FAVORITES,,SIFAVORITES<CR>,<-,,,,,
+,,,AUX1,"* X1300,S720:AUX , Other:AUX1 is selected",SIAUX1<CR>,<-,,,,,
+,,,BT,---Bluetooth,SIBT<CR>,<-,,,,,
+,,,USB/IPOD,,SIUSB/IPOD<CR>,<-,,,,,
+,,,USB,Select INPUT source iPod/USB and Start Playback,SIUSB<CR>,<-,,,,,
+,,,IPD,Select INPUT source iPod/USB and iPod DIRECT Start Playback,SIIPD<CR>,<-,,,,,
+,,,IRP,Select INPUT source Online Music and iRadio Recent Play,SIIRP<CR>,<-,,,,,
+,,,FVP,Select INPUT source Online Music and Favorites Play,SIFVP<CR>,<-,,,,,
+,,,?,Return SI Status,SI?<CR>,,,,,,
+,,ZM,ON,MAIN-ZONE ON/OFF change,ZMON<CR>,<-,,,,,
+,,,OFF,,ZMOFF<CR>,<-,,,,,
+,,,?,Return ZM Status,ZM?<CR>,,,,,,
+,,SD,AUTO,set AUTO mode,SDAUTO<CR>,<-,,,,,
+,,,, (Priority:HDMI>>DIGITAL>>ANALOG),,,,,,,
+,,,HDMI,set force HDMI INPUT mode,SDHDMI<CR>,<-,,,,,
+,,,DIGITAL,set force DIGITAL INPUT mode,SDDIGITAL<CR>,<-,,,,,
+,,,," (Optical,Coaxial)",,,,,,,
+,,,ANALOG,set force ANALOG INPUT mode,SDANALOG<CR>,<-,,,,,
+,,,?,Return SD Status,SD?<CR>,,,,,,
+,,,,,,SDARC<CR>,,,,,
+,,,,,,SDNO<CR>,,,,,
+,,SV,DVD,"VIDEO SELECT mode set to ON, and select source
+* X1300,S720:DVD/Blu-ray is selected",SVDVD<CR>,<-,,,,,
+,,,BD,,SVBD<CR>,<-,,,,,
+,,,TV,,SVTV<CR>,<-,,,,,
+,,,SAT/CBL,,SVSAT/CBL<CR>,<-,,,,,
+,,,MPLAY,,SVMPLAY<CR>,<-,,,,,
+,,,GAME,,SVGAME<CR>,<-,,,,,
+,,,AUX1,,SVAUX1<CR>,<-,,,,,
+,,,ON,VIDEO SELECT ON,SVON<CR>,<-,,,,,
+,,,OFF,VIDEO SELECT OFF,SVOFF<CR>,<-,,,,,
+,,,?,Return SV Status,SV?<CR>,"SVDVD<CR>
+SVON<CR>",,,,,
+,,SLP,OFF,MAIN ZONE SLEEP　TIMER setting,SLPOFF<CR>,<-,,,,,
+,,,***,"***:001 to 120 by ASCII , 010=10min",SLP120<CR>,SLP120<CR>,,,,,
+,,,?,Return SLP Status,SLP?<CR>,,,,,,
+,,STBY,15M,MAIN ZONE Auto Standby setting,STBY15M<CR>,<-,,,,,
+,,,30M,,STBY30M<CR>,<-,,,,,
+,,,60M,,STBY60M<CR>,<-,,,,,
+,,,OFF,,STBYOFF<CR>,<-,,,,,
+,,,?,Return STBY Status,STBY?<CR>,,,,,,
+,,ECO,ON,MAIN ZONE ECO mode setting,ECOON<CR>,<-,,,,,
+,,,AUTO,,ECOAUTO<CR>,<-,,,,,
+,,,OFF,,ECOOFF<CR>,<-,,,,,
+,,,?,Return ECO Status,ECO?<CR>,,,,,,
+,,MS,MOVIE,,MSMOVIE<CR>,,,,,,
+,,,MUSIC,,MSMUSIC<CR>,,,,,,
+,,,GAME,,MSGAME<CR>,,,,,,
+,,,DIRECT,Select SURROUND mode,MSDIRECT<CR>,,,,,,
+,,,,,,MSDIRECT<CR>,,,,,
+,,,,,,MSDSD DIRECT<CR>,,,,,
+,,,STEREO,,MSSTEREO<CR>,MSSTEREO<CR>,,,,,
+,,,AUTO,,MSAUTO<CR>,<-,,,,,
+,,,DOLBY DIGITAL,,MSDOLBY DIGITAL<CR>,,,,,,
+,,,,,,MSDOLBY SURROUND<CR>,,,,,
+,,,,,,MSDOLBY ATMOS<CR>,,,,,
+,,,,,,MSDOLBY DIGITAL<CR>,,,,,
+,,,,,,MSDOLBY D+DS<CR>,,,,,
+,,,,,,MSDTS SURROUND<CR>,,,,,
+,,,,,,MSDTS ES DSCRT6.1<CR>,,,,,
+,,,,,,MSDTS ES MTRX6.1<CR>,,,,,
+,,,,,,MSDTS96/24<CR>,,,,,
+,,,,,,MSDTS96 ES MTRX<CR>,,,,,
+,,,,,,MSDTS+NEURAL:X,,,,,
+,,,,,,MSDTS ES MTRX+NEURAL:X<CR>,,,,,
+,,,,,,MSDTS ES DSCRT+NEURAL:X<CR>,,,,,
+,,,,,,MSMULTI CH IN<CR>,,,,,
+,,,,,,MSM CH IN+DS<CR>,,,,,
+,,,,,,MSMULTI CH IN 7.1<CR>,,,,,
+,,,,,,MSM CH IN+NEURAL:X<CR>,,,,,
+,,,,,,MSDOLBY D+<CR>,,,,,
+,,,,,,MSDOLBY D+ +DS<CR>,,,,,
+,,,,,,MSDOLBY HD<CR>,,,,,
+,,,,,,MSDOLBY HD+DS<CR>,,,,,
+,,,,,,MSDTS HD<CR>,,,,,
+,,,,,,MSDTS HD MSTR<CR>,,,,,
+,,,,,,MSDTS HD+NEURAL:X<CR>,,,,,
+,,,,,,MSDTS:X<CR>,,,,,
+,,,,,,MSDTS:X MSTR<CR>,,,,,
+,,,,,,MSDTS EXPRESS<CR>,,,,,
+,,,,,,MSDTS ES 8CH DSCRT<CR>,,,,,
+,,,DTS SURROUND,,MSDTS SURROUND<CR>,,,,,,
+,,,,,,MSNEURAL:X<CR>,,,,,
+,,,,,,MSDTS SURROUND<CR>,,,,,
+,,,,,,MSDTS ES DSCRT6.1<CR>,,,,,
+,,,,,,MSDTS ES MTRX6.1<CR>,,,,,
+,,,,,,MSDTS96/24<CR>,,,,,
+,,,,,,MSDTS96 ES MTRX<CR>,,,,,
+,,,,,,MSDTS+NEURAL:X,,,,,
+,,,,,,MSDTS ES MTRX+NEURAL:X<CR>,,,,,
+,,,,,,MSDTS ES DSCRT+NEURAL:X<CR>,,,,,
+,,,,,,MSDOLBY ATMOS<CR>,,,,,
+,,,,,,MSDOLBY DIGITAL<CR>,,,,,
+,,,,,,MSDOLBY D+DS<CR>,,,,,
+,,,,,,MSMULTI CH IN<CR>,,,,,
+,,,,,,MSM CH IN+DS<CR>,,,,,
+,,,,,,MSMULTI CH IN 7.1<CR>,,,,,
+,,,,,,MSM CH IN+NEURAL:X<CR>,,,,,
+,,,,,,MSDOLBY D+<CR>,,,,,
+,,,,,,MSDOLBY D+ +DS<CR>,,,,,
+,,,,,,MSDOLBY HD<CR>,,,,,
+,,,,,,MSDOLBY HD+DS<CR>,,,,,
+,,,,,,MSDTS HD<CR>,,,,,
+,,,,,,MSDTS HD MSTR<CR>,,,,,
+,,,,,,MSDTS HD+NEURAL:X<CR>,,,,,
+,,,,,,MSDTS:X<CR>,,,,,
+,,,,,,MSDTS:X MSTR<CR>,,,,,
+,,,,,,MSDTS EXPRESS<CR>,,,,,
+,,,,,,MSDTS ES 8CH DSCRT<CR>,,,,,
+,,,MCH STEREO,,MSMCH STEREO<CR>,MSMCH STEREO<CR>,,,,,
+,,,ROCK ARENA,,MSROCK ARENA<CR>,<-,,,,,
+,,,JAZZ CLUB,,MSJAZZ CLUB<CR>,<-,,,,,
+,,,MONO MOVIE,,MSMONO MOVIE<CR>,<-,,,,,
+,,,MATRIX,,MSMATRIX<CR>,<-,,,,,
+,,,VIDEO GAME,,MSVIDEO GAME<CR>,<-,,,,,
+,,,VIRTUAL,,MSVIRTUAL<CR>,<-,,,,,
+,,,LEFT,,MSLEFT<CR>,MSSTEREO<CR>,,,,,
+,,,RIGHT,,MSRIGHT<CR>,MSSTEREO<CR>,,,,,
+,,,-,"during ""All Zone Stereo"" mode",-,MSALL ZONE STEREO<CR>,,,,,
+,,,?,Return MS Status,MS?<CR>,,,,,,
+,,,QUICK1,QUICK SELECT 1-5 MODE SELECT,MSQUICK1<CR>,<-,,,,,
+,,,QUICK2,,MSQUICK2<CR>,<-,,,,,
+,,,QUICK3,,MSQUICK3<CR>,<-,,,,,
+,,,QUICK4,,MSQUICK4<CR>,<-,,,,,
+,,,QUICK5,,MSQUICK5<CR>,<-,,,,,
+,,,-,,-,MSQUICK0<CR>,,,,,
+,,,QUICK1 MEMORY　,QUICK SELECT 1-5 MODE MEMORY,MSQUICK1 MEMORY<CR>,<-,,,,,
+,,,QUICK2 MEMORY,,MSQUICK2 MEMORY<CR>,<-,,,,,
+,,,QUICK3 MEMORY,,MSQUICK3 MEMORY<CR>,<-,,,,,
+,,,QUCIK4 MEMORY,,MSQUICK4 MEMORY<CR>,<-,,,,,
+,,,QUICK5 MEMORY,,MSQUICK5 MEMORY<CR>,<-,,,,,
+,,,QUICK ?,Return MSQUICK Status,MSQUICK ?<CR>,,,,,,
+,,,AUDIO AMP,Set HDMI AUDIO Output to AMP ,VSAUDIO AMP<CR>,<-,,,,,
+,,,AUDIO TV,Set HDMI AUDIO Output to TV,VSAUDIO TV<CR>,<-,,,,,
+,,,AUDIO ?,Return VSAUDIO Status,VSAUDIO ?<CR>,,,,,,
+,,PS,TONE CTRL ON,PARAMETER setting,PSTONE CTRL ON<CR>,<-,,,,,
+,,,TONE CTRL OFF,TONE CONTROL ON/OFF,PSTONE CTRL OFF<CR>,<-,,,,,
+,,,TONE CTRL ?,Return PSTONE CONTROL Status,PSTONE CTRL ?<CR>,,,,,,
+,,,BAS UP,"BASS UP/DOWN , direct change to **dB",PSBAS UP<CR>,PSBAS 50<CR>,,,,,
+,,,BAS DOWN,"**:00 to 99 by ASCII , 50=0dB",PSBAS DOWN<CR>,PSBAS 50<CR>,,,,,
+,,,BAS **,---AVR can be operated from -6 to +6(44 to 56),PSBAS 50<CR>,<-,,,,,
+,,,BAS ?,Return PSBAS Status,PSBAS ?<CR>,,,,,,
+,,,TRE UP,"TREBLE UP/DOWN , direct change to **dB",PSTRE UP<CR>,PSTRE 50<CR>,,,,,
+,,,TRE DOWN,"**:00 to 99 by ASCII , 50=0dB ",PSTRE DOWN<CR> ,PSTRE 50<CR>,,,,,
+,,,TRE **,---AVR can be operated from -6 to +6(44 to 56),PSTRE 50<CR>,<-,,,,,
+,,,TRE ?,Return PSTRE Status,PSTRE ?<CR>,,,,,,
+,,,DIL ON,Dialog Level Adjust = ON,PSDIL ON<CR>,<-,,,,,
+,,,DIL OFF,Dialog Level Adjust = OFF,PSDIL OFF<CR>,<-,,,,,
+,,,DIL UP,,PSDIL UP<CR>,PSDIL 50<CR>,,,,,
+,,,DIL DOWN,---Dialog Level　Adjust,PSDIL DOWN<CR>,PSDIL 50<CR>,,,,,
+,,,DIL **,"**:38 to 62 by ASCII , 50=0dB",PSDIL 50<CR>,<-,,,,,
+,,,DIL ?,Return DIL Status,PSDIL ?<CR>,"PSDIL?<CR>
+PSDIL ON<CR>
+PSDIL 50<CR>",,,,,
+,,,SWL ON,Subwoofer Level Adjust = ON,PSSWL ON<CR>,<-,,,,,
+,,,SWL OFF,Subwoofer Level Adjust = OFF,PSSWL OFF<CR>,<-,,,,,
+,,,SWL UP,,PSSWL UP<CR>,PSSWL 50<CR>,,,,,
+,,,SWL DOWN,---SUBWOOFER(1)　Level　Adjust,PSSWL DOWN<CR>,PSSWL 50<CR>,,,,,
+,,,SWL **,"**:00,38 to 62 by ASCII , 50=0dB",PSSWL 50<CR>,<-,,,,,
+,,,SWL ?,Return SWL Status,PSSWL ?<CR>,"PSSWL ?<CR>
+PSSWL ON<CR>
+PSSWL 50<CR>
+PSSWL2 50<CR>
+※If SW2 is none,""PSSWL2"" command is not output.",,,,,
+,,,CINEMA EQ.ON,CINEMA EQ. ON/OFF,PSCINEMA EQ.ON<CR>,<-,,,,,
+,,,CINEMA EQ.OFF,,PSCINEMA EQ.OFF<CR>,<-,,,,,
+,,,CINEMA EQ. ?,Return PSCINEMA EQ.Status,PSCINEMA EQ. ?<CR>,,,,,,
+,,,PSLOM ON,Loudness Management: ON,PSLOM ON<CR>,<-,,,,,
+,,,PSLOM OFF,Loudness Management: OFF,PSLOM OFF<CR>,<-,,,,,
+,,,PSLOM ?,Return PSLOM Status,PSLOM ?<CR>,,,,,,
+,,,MULTEQ:AUDYSSEY,MultEQ/MultEQ XT/MultEQ XT32 mode direct change,PSMULTEQ:AUDYSSEY<CR>,<-,,,,,
+,,,MULTEQ:BYP.LR,AUDYSSEY= Reference,PSMULTEQ:BYP.LR<CR>,<-,,,,,
+,,,MULTEQ:FLAT,BYP.LR= L/R Bypass,PSMULTEQ:FLAT<CR>,<-,,,,,
+,,,MULTEQ:OFF,,PSMULTEQ:OFF<CR>,<-,,,,,
+,,,MULTEQ ?,Return PSMULTEQ: Status,PSMULTEQ: ?<CR>,,,,,,
+,,,DYNEQ ON,Dynamic EQ = ON,PSDYNEQ ON<CR>,<-,,,,,
+,,,DYNEQ OFF,Dynamic EQ = OFF,PSDYNEQ OFF<CR>,<-,,,,,
+,,,DYNEQ ?,Return PSDYNEQ Status,PSDYNEQ ?<CR>,,,,,,
+,,,REFLEV 0,Reference Level Offset=0dB,PSREFLEV 0<CR>,<-,,,,,
+,,,REFLEV 5,Reference Level Offset=5dB,PSREFLEV 5<CR>,<-,,,,,
+,,,REFLEV 10,Reference Level Offset=10dB,PSREFLEV 10<CR>,<-,,,,,
+,,,REFLEV 15,Reference Level Offset=15dB,PSREFLEV 15<CR>,<-,,,,,
+,,,REFREV ?,Return PSREFLEV Status,PSREFLEV ?<CR>,,,,,,
+,,,DYNVOL HEV,Dynamic Volume = Heavy,PSDYNVOL HEV<CR>,<-,,,,,
+,,,DYNVOL MED,Dynamic Volume = Medium,PSDYNVOL MED<CR>,<-,,,,,
+,,,DYNVOL LIT,Dynamic Volume = Light,PSDYNVOL LIT<CR>,<-,,,,,
+,,,DYNVOL OFF,Dynamic Volume = OFF,PSDYNVOL OFF<CR>,<-,,,,,
+,,,DYNVOL ?,Return PSDYNVOL Status,PSDYNVOL ?<CR>,,,,,,
+,,,GEQ ON,Graphic EQ = ON,PSGEQ ON<CR>,<-,,,,,
+,,,GEQ OFF,Graphic EQ = OFF,PSGEQ OFF<CR>,<-,,,,,
+,,,GEQ ?,Return Graphic EQ Status,PSGEQ ?<CR>,,,,,,
+,,,HEQ ON,Headphone EQ = ON,PSHEQ ON<CR>,<-,,,,,
+,,,HEQ OFF,Headphone EQ = OFF,PSHEQ OFF<CR>,<-,,,,,
+,,,HEQ ?,Return Headphone EQ Status,PSHEQ ?<CR>,,,,,,
+,,,DRC AUTO,Dynamic Compression direct change,PSDRC AUTO<CR>,<-,,,,,
+,,,DRC LOW ,,PSDRC LOW<CR>,<-,,,,,
+,,,DRC MID,,PSDRC MID<CR>,<-,,,,,
+,,,DRC HI,,PSDRC HI<CR>,<-,,,,,
+,,,DRC OFF,,PSDRC OFF<CR>,<-,,,,,
+,,,DRC ?,Return PSDRC Status,PSDRC ?<CR>,,,,,,
+,,,DIC UP,"Dialog Control UP/DOWN , direct change to **dB",PSDIC UP<CR>,PSDIC 03<CR>,,,,,
+,,,DIC DOWN,"**:00 to 99 by ASCII , 00=0",PSDIC DOWN<CR>,PSDIC 03<CR>,,,,,
+,,,DIC **,---AVR can be operated from 0 to 6,PSDIC 03<CR>,<-,,,,,
+,,,DIC ?,Return PSDIC Status,PSDIC ?<CR>,,,,,,
+,,,LFE UP,"LFE UP/DOWN , direct change to **dB",PSLEE UP<CR>,PSLFE 10<CR>,,,,,
+,,,LFE DOWN,"**:00 to 99 by ASCII , 00=0dB, 10=-10dB",PSLFE DOWN<CR>,PSLFE 10<CR>,,,,,
+,,,LFE **,---AVR can be operated from 0 to -10,PSLFE 10<CR>,<-,,,,,
+,,,LFE ?,Return PSLFE Status,PSLFE ?<CR>,,,,,,
+,,,EFF UP,EFFECT LEVEL direct change to **dB,PSEFF UP<CR>,PSEFF 10<CR>,,,,,
+,,,EFF DOWN,"**:00 to 99 by ASCII , 00=0dB, 10=10dB",PSEFF DOWN<CR>,PSEFF 10<CR>,,,,,
+,,,EFF **,---AVR can be operated from 1 to 15,PSEFF 10<CR>,<-,,,,,
+,,,EFF ?,Return PSEFF Status,PSEFF ?<CR>,"ex1（WIDE SCREEN mode)
+PSEFF ON<CR>
+PSEFF 10<CR>
+ex2（except WIDE SCREEN mode)
+PSEFF 10<CR>",,,,,
+,,,DEL UP,"DELAY UP/DOWN , direct change to ***dB",PSDEL UP<CR>,PSDEL 000<CR>,,,,,
+,,,DEL DOWN,"***:000 to 999 by ASCII , 000=0ms, 300=300ms",PSDEL DOWN<CR>,PSDEL 000<CR>,,,,,
+,,,DEL ***,---AVR can be operated from 0 to 300,PSDEL 000<CR>,<-,,,,,
+,,,,0-60ms:3ms/Step 　Over 60ms:10ms/Step,,,,,,,
+,,,DEL ?,Return PSDEL Status,PSDEL ?<CR>,,,,,,
+,,,CES ON,CENTER SPREAD ON/OFF ,PSCES ON<CR>,<-,,,,,
+,,,CES OFF,,PSCES OFF<CR>,<-,,,,,
+,,,CES ?,Return PSCES Status,PSCES ?<CR>,,,,,,
+,,,NEURAL ON,Neural:X ON/OFF,PSNEURAL ON<CR>,<-,,,,,
+,,,NEURAL OFF,,PSNEURAL OFF<CR>,<-,,,,,
+,,,NEURAL ?,Return PSNEURAL Status,PSNEURAL ?<CR>,,,,,,
+,,,SWR ON,SW ON/OFF,PSSWR ON<CR>,<-,,,,,
+,,,SWR OFF,"※DIRECT,STEREO(2ch) mode ",PSSWR OFF<CR>,<-,,,,,
+,,,SWR ? ,Return PSSWR Status,PSSWR ?<CR>,,,,,,
+,,,RSZ S,ROOM SIZE direct change,PSRSZ S<CR>,<-,,,,,
+,,,RSZ MS,,PSRSZ MS<CR>,<-,,,,,
+,,,RSZ M,,PSRSZ M<CR>,<-,,,,,
+,,,RSZ ML,,PSRSZ ML<CR>,<-,,,,,
+,,,RSZ L,,PSRSZ L<CR>,<-,,,,,
+,,,RSZ ?,Return PSRSZ Status,PSRSZ ?<CR> ,,,,,,
+,,,DELAY UP,"AUDIO DELAY UP/DOWN , direct change to ***dB",PSDELAY UP<CR>,PSDELAY 200<CR>,,,,,
+,,,DELAY DOWN,"***:000 to 999 by ASCII , 000=0ms, 200=200ms",PSDELAY DOWN<CR>,PSDELAY 200<CR>,,,,,
+,,,DELAY ***,---AVR can be operated from 0 to 500 (FY16)　,PSDELAY 200<CR>,<-,,,,,
+,,,DELAY?,Return PSDELAY Status,PSDELAY ?<CR> ,,,,,,
+,,,RSTR OFF,AUDIO RESTORER direct change,PSRSTR OFF<CR>,<-,,,,,
+,,,RSTR LOW,RSTR LOW=MODE3,PSRSTR LOW<CR>,<-,,,,,
+,,,RSTR MED,RSTR MID=MODE2,PSRSTR MED<CR>,<-,,,,,
+,,,RSTR HI,RSTR HI=MODE1,PSRSTR HI<CR>,<-,,,,,
+,,,RSTR ?,Return PSRSTR Status,PSRSTR ?<CR>,,,,,,
+ZONE2 Control,,Z2,SOURCE,ZONE2 mode cancel （ZONE2 source is same as MAIN ZONE),Z2SOURCE<CR>,<-,,,,,
+,,,TUNER,,Z2TUNER<CR>,<-,,,,,
+,,,DVD,"*X1300,S720:DVD/Blu-ray is selected",Z2DVD<CR>,<-,,,,,
+,,,BD,,Z2BD<CR>,<-,,,,,
+,,,TV,,Z2TV<CR>,<-,,,,,
+,,,SAT/CBL,,Z2SAT/CBL<CR>,<-,,,,,
+,,,MPLAY,,Z2MPLAY<CR>,<-,,,,,
+,,,GAME,,Z2GAME<CR>,<-,,,,,
+,,,NET,* 2016 AVR: Online Music is selected,Z2NET<CR>,<-,,,,,
+,,,PANDORA,(North America model Only),Z2PANDORA<CR>,<-,,,,,
+,,,SIRIUSXM,(North America model Only),Z2SIRIUSXM<CR>,<-,,,,,
+,,,IRADIO,,Z2IRADIO<CR>,<-,,,,,
+,,,SERVER,,Z2SERVER<CR>,<-,,,,,
+,,,FAVORITES,,Z2FAVORITES<CR>,<-,,,,,
+,,,AUX1,"*X1300,S720:AUX , Other:AUX1 is selected",Z2AUX1<CR>,<-,,,,,
+,,,BT,---Bluetooth,Z2BT<CR>,<-,,,,,
+,,,USB/IPOD,,Z2USB/IPOD<CR>,<-,,,,,
+,,,USB,Select INPUT source iPod/USB and Start Playback,Z2USB<CR>,<-,,,,,
+,,,IPD,Select INPUT source iPod/USB and iPod DIRECT Start Playback,Z2IPD<CR>,<-,,,,,
+,,,IRP,Select INPUT source Online Music and iRadio Recent Play,Z2IRP<CR>,<-,,,,,
+,,,FVP,Select INPUT source Online Music and Favorites Play,Z2FVP<CR>,<-,,,,,
+,,,QUICK1,Z2 QUICK SELECT 1-5 MODE SELECT,Z2QUICK1<CR>,<-,,,,,
+,,,QUICK2,,Z2QUICK2<CR>,<-,,,,,
+,,,QUICK3,,Z2QUICK3<CR>,<-,,,,,
+,,,QUICK4,,Z2QUICK4<CR>,<-,,,,,
+,,,QUICK5,,Z2QUICK5<CR>,<-,,,,,
+,,,-,,-,Z2QUICK0<CR>,,,,,
+,,,QUICK1 MEMORY　,Z2 QUICK SELECT 1-5 MODE MEMORY,Z2QUICK1 MEMORY<CR>,<-,,,,,
+,,,QUICK2 MEMORY,,Z2QUICK2 MEMORY<CR>,<-,,,,,
+,,,QUICK3 MEMORY,,Z2QUICK3 MEMORY<CR>,<-,,,,,
+,,,QUCIK4 MEMORY,,Z2QUICK4 MEMORY<CR>,<-,,,,,
+,,,QUICK5 MEMORY,,Z2QUICK5 MEMORY<CR>,<-,,,,,
+,,,QUICK ?,Return Z2QUICK Status,Z2QUICK ?<CR>,,,,,,
+,,,UP,"ZONE2 VOLUME UP/DOWN , direct change to **dB",Z2UP<CR>,Z280<CR>,,,,,
+,,,DOWN,,Z2DOWN<CR>,Z280<CR>,,,,,
+,,,**,"**:00 to 98 by ASCII , 80=0dB, 00=---(MIN)",Z280<CR>,<-,,,,,
+,,,,Refer to Volume_CMD sheet,,,,,,,
+,,,ON,ZONE2 ON/OFF change,Z2ON<CR>,<-,,,,,
+,,,OFF,,Z2OFF<CR>,<-,,,,,
+,,,?,Return Z2 Status,Z2?<CR>,,,,,,
+,,,,"※If ZONE2 mode is selected, ""Z2"" status returns",,SRCD<CR>,,,,,
+,,,,"※If REC mode is selected, ""SR"" status returns",,   |,,,,,
+,,,,,,SRUSB DIRECT<CR>,,,,,
+,,,,,,SRIPOD DIRECT<CR>,,,,,
+,,,,,,SRSOURCE<CR>,,,,,
+,,Z2MU,ON,ZONE2 OUTPUT MUTE ON/OFF change,Z2MUON<CR>,<-,,,,,
+,,,OFF,,Z2MUOFF<CR>,<-,,,,,
+,,,?,Return Z2MU Status,Z2MU?<CR>,,,,,,
+,,Z2SLP,OFF,ZONE2 SLEEP　TIMER setting,Z2SLPOFF<CR>,<-,,,,,
+,,,***,"***:001 to 120 by ASCII , 010=10min",Z2SLP120<CR>,<-,,,,,
+,,,?,Return SLP Status,Z2SLP?<CR>,,,,,,
+,,Z2STBY,2H,ZONE2 Auto Standby setting,Z2STBY2H<CR>,<-,,,,,
+,,,4H,,Z2STBY4H<CR>,<-,,,,,
+,,,8H,,Z2STBY8H<CR>,<-,,,,,
+,,,OFF,,Z2STBYOFF<CR>,<-,,,,,
+,,,?,Return Z2STBY Status,Z2STBY?<CR>,,,,,,
+Tuner Control,,TF,ANUP,TUNER Frequency UP/DOWN ,TFANUP<CR>,TFAN105000<CR>,,,,,
+,,,ANDOWN,,TFANDOWN<CR>,TFAN105000<CR>,,,,,
+,,,AN******,--- ****.** kHz at AM band (>050000 is AM.),TFAN105000<CR>,<-,,,,,
+,,,(6 digits),    ****.** MHz at FM band (<050000 is FM.), (1050.00kHz at AM),,,,,,
+,,,AN?,Return TF Status,TFAN?<CR>,,,,,,
+,,TP,ANUP,"TUNER PRESET CH UP/DOWN , direct change to No.**",TPANUP<CR>,TPAN01<CR>,,,,,
+,,,ANDOWN,,TPANDOWN<CR>,TPAN01<CR>,,,,,
+,,,AN**(PRESET No.),"**：01-56　 01=CH01,56=CH56",TPAN01<CR>,<-,,,,,
+,,,,, (PRESET No.”01”),,,,,,
+,,,AN?,Return TP Status,TPAN?<CR>,,,,,,
+,,,,,,TPANOFF<CR>,,,,,
+,,,ANMEM,TUNER PRESET MEMORY,TPANMEM<CR>,"TPANMEM<CR>
+↓
+TPANUP<CR>
+ or TPANDOWN<CR>
+ or TPAN**<CR>
+↓
+TPANMEM<CR>",,,,,
+,,,ANMEM**(PRESET No.),TUNER PRESET MEMORY,TPANMEM01<CR>,<-,,,,,
+,,,,"**：01-56　 01=CH01,56=CH56
+",,,,,,,
+,,TM,,"TUNER BAND , MODE Select",,,,,,,
+,,,ANAM,---Band set to AM,TMANAM<CR>,<-,,,,,
+,,,ANFM,---Band set to FM,TMANFM<CR>,<-,,,,,
+,,,AN?,Return TM Status,TMAN?<CR>,,,,,,
+,,,ANAUTO,---Tuning mode set to AUTO mode,TMANAUTO<CR>,<-,,,,,
+,,,ANMANUAL,---Tuning mode set to MANUAL mode,TMANMANUAL<CR>,<-,,,,,
+"Control for Online Music, USB/iPod and Bluetooth",,NS,90,“Cursor Up” Control,NS90<CR>,※command only,,,,,
+,,,91,“Cursor Down” Control,NS91<CR>,※command only,,,,,
+,,,92,“Cursor Left” Control,NS92<CR>,※command only,,,,,
+,,,93,“Cursor Right” Control,NS93<CR>,※command only,,,,,
+,,,94,“Enter (Play/Pause)” Control,NS94<CR>,※command only,,,,,
+,,,9A,“Play” Control,NS9A<CR>,※command only,,,,,
+,,,9B,“Pause” Control,NS9B<CR>,※command only,,,,,
+,,,9C,“Stop” Control,NS9C<CR>,※command only,,,,,
+,,,9D,“Skip Plus” Control,NS9D<CR>,※command only,,,,,
+,,,9E,“Skip Minus” Control,NS9E<CR>,※command only,,,,,
+,,,9F,"“Manual Search Plus” Control(USB/iPod,Media Server,Bluetooth)",NS9F<CR>,※command only,,,,,
+,,,9G,"“Manual Search Minus” Control(USB/iPod,Media Server,Bluetooth)",NS9G<CR>,※command only,,,,,
+,,,9H,"“Repeat One”　
+(Media Server,USB,iPod Direct,Bluetooth)",NS9H<CR>,※command only,,,,,
+,,,9I,"“Repeat All”
+(Media Server,USB,iPod Direct,Bluetooth)
+",NS9I<CR>,※command only,,,,,
+,,,9J,"“Repeat Off”
+(Media Server,USB,iPod Direct,Bluetooth)",NS9J<CR>,※command only,,,,,
+,,,9K,"“Random On”(Media Server,USB,Bluetooth)",NS9K<CR>,※command only,,,,,
+,,,,“Shuffle Songs” Control (iPod Direct Only),,,,,,,
+,,,9M,"“Random Off”  (Media Server,USB,,Bluetooth)",NS9M<CR>,※command only,,,,,
+,,,,“Shuffle Off” Control (iPod Direct),,,,,,,
+,,,9W,Toggle Switch “From iPod Mode/On Screen Mode″Control,NS9W<CR>,※command only,,,,,
+,,,,(iPod Direct only),,,,,,,
+,,,9X,"“Page Next”　Control (except Bluetooth, AirPlay, Spotify remote)",NS9X<CR>,※command only,,,,,
+,,,9Y,"“Page Previous” Control (except Bluetooth, AirPlay, Spotify remote)",NS9Y<CR>,※command only,,,,,
+,,,9Z,"“Manual Search STOP” Control(USB/iPod,Media Server,Bluetooth)",NS9Z<CR>,※command only,,,,,
+,,,RPT,"“Repeat(toggle)”
+(Media Server,USB,iPod Direct,Spotify,AirPlay,Bluetooth)",NSRPT<CR>,※command only,,,,,
+,,,RND,"“Random(toggle)""
+(Media Server,USB,iPod Direct,Spotify,AirPlay,Bluetooth)",NSRND<CR>,※command only,,,,,
+,,,B**,"Preset Call (except Bluetooth, USB/iPod)",NSB00<CR>,※command only,,,,,
+,,,(PRESET No.),**：00-55 → 00-35(2014 AVR),,,,,,,
+,,,C**,"Preset Memory (except Bluetooth, USB/iPod)",NSC00<CR>,NSC00<CR>,,,,,
+,,,(PRESET No.),**：00-55 → 00-35(2014 AVR),,NSCOK<CR>,,,,,
+,,,H,"Net Audio Preset Name status（UTF-8）(except Bluetooth, USB/iPod)",NSH<CR>,"NSH<CR>
+(Return)
+NSH00**********(20 digits)<CR>(Preset Name：01)
+NSH01**********(20 digits)<CR>(Preset Name：02)
+          ～
+NSH35**********(20 digits)<CR>(Preset Name：36)
+",,,,,
+,,,FV MEM,Add Favorites folder,NSFV MEM<CR>,,,,,,
+,,NSA,,Return Onscreen Display Information List ,NSA<CR>,,,,,,
+,,,,"(ASCII CODE Character)
+*ASCII Character(MAX96byte)
+_:Null
+?: Don't Care (The character after Null should be disregarded)
+※:Cursor&Playable Information Data(1byte)
+Bit1:Playable Music =1
+Bit2:Directory
+Bit3:Don't Care
+Bit4:CURSOR SELECT=1
+Bit7:Picture
+Bit5,6,8:Don't Care
+************_???:MAX 96byte","(Return NSA0-NSA8）
+","NSA0<CR>
+(Return)
+NSA0**********************_???(96byte)<CR>
+NSA1※(Flag1byte)*********_???(95byte)<CR>
+NSA2※(Flag1byte)*********_???(95byte)<CR>
+NSA3※(Flag1byte)*********_???(95byte)<CR>
+NSA4※(Flag1byte)*********_???(95byte)<CR>
+NSA5※(Flag1byte)*********_???(95byte)<CR>
+NSA6※(Flag1byte)*********_???(95byte)<CR>
+NSA7※(Flag1byte)*********_???(96byte)<CR>
+NSE8   [    1/10   ]_????????(96byte)<CR>
+",,,,,
+,,,,,(example),"NSA0Now Playing  USB_??????<CR>
+NSA1※Song_????????????????<CR>
+NSA2※/Artist_?????????????<CR>
+NSA3※bitrate_?????????????<CR>
+NSA4※Album_???????????????<CR>
+NSA5※   00:11     100%_???<CR>
+NSA6_??????????????????????<CR>
+NSA7_??????????????????????<CR>
+NSA8   [    1/10   ]_??????<CR>
+
+BT playback
+NSANow Playing_???????<CR>
+NSA1※Title_??????????????????<CR>
+NSA2※Artist_?????????????????<CR>
+NSA3※??????????????????????<CR>
+NSA4※Album_????????????????<CR>
+NSA5_????????????????????????<CR>
+NSA6_????????????????????????<CR>
+NSA7_????????????????????????<CR>
+NSA8   [    1/1    ]
+
+",,,,,
+,,NSE,,Request Onscreen Display Information List,NSE<CR>,,,,,,
+,,,,"(UTF-8 CODE Character)
+*UTF-8 Character(MAX96byte)
+_:Null
+?: Don't Care (The character after Null should be disregarded)
+※:Cursor&Playable Information Data(1byte)
+Bit1:Playable Music =1
+Bit2:Directory
+Bit3:Don't Care
+Bit4:CURSOR SELECT=1
+Bit7:Picture
+Bit5,6,8:Don't Care
+************_???:MAX 96byte",(Return NSE0-NSE8）,"NSE0<CR>
+(Return)
+NSE0**********************_???(96byte)<CR>
+NSE1※(Flag1byte)*********_???(95byte)<CR>
+NSE2※(Flag1byte)*********_???(95byte)<CR>
+NSE3※(Flag1byte)*********_???(95byte)<CR>
+NSE4※(Flag1byte)*********_???(95byte)<CR>
+NSE5※(Flag1byte)*********_???(95byte)<CR>
+NSE6※(Flag1byte)*********_???(95byte)<CR>
+NSE7※(Flag1byte)*********_???(96byte)<CR>
+NSE8   [    1/10   ]_????????(96byte)<CR>
+",,,,,
+,,,,,(example),"NSE0Now Playing  USB_??????<CR>
+NSE1※Song_????????????????<CR>
+NSE2※Artist_??????????????<CR>
+NSE3※_????????????????????<CR>
+NSE4※Album_???????????????<CR>
+NSE5※   00:11     100%_???<CR>
+NSE6_??????????????????????<CR>
+NSE7_??????????????????????<CR>
+NSE8   [    1/10   ]_??????<CR>
+
+Bluetooth playback
+NSENow Playing _???????<CR>
+NSE1※Title_??????????????????<CR>
+NSE2※Artist_?????????????????<CR>
+NSE3※?????????????????????????<CR>
+NSE4※Album_??????????????????<CR>
+NSE5_?????????????????????????<CR>
+NSE6_?????????????????????????<CR>
+NSE7_?????????????????????????<CR>
+NSE8   [    1/1    ]
+
+",,,,,
+System Control,,MN,CUP,“Cursor Up” Control,MNCUP<CR>,※command only,,,,,
+,,,CDN,“Cursor Down” Control,MNCDN<CR>,※command only,,,,,
+,,,CLT,“Cursor Left” Control,MNCLT<CR>,※command only,,,,,
+,,,CRT,“Cursor Right” Control,MNCRT<CR>,※command only,,,,,
+,,,ENT,“Enter” Control,MNENT<CR>,※command only,,,,,
+,,,RTN,“RETURN” Control,MNRTN<CR>,※command only,,,,,
+,,,OPT,“OPTION” Control,MNOPT<CR>,※command only,,,,,
+,,,INF,“INFO”Control,MNINF<CR>,※command only,,,,,
+,,,CHL,“Channel Level Adjust”menu on/offControl,MNCHL<CR>,※command only,,,,,
+,,,MEN ON,“Setup Menu ON” Control,MNMEN ON<CR>,<-,,,,,
+,,,MEN OFF,“Setup Menu OFF” Control,MNMEN OFF<CR>,<-,,,,,
+,,,MEN?,Return MNMEN(Menu) status,MNMEN?<CR>,,,,,,
+,,,,,,MNMEN ON<CR>,,,,,
+,,,,,,MNMEN OFF<CR>,,,,,
+,,,ZST ON,"""All Zone Stereo"" direct Control",MNZST ON<CR>,<-,,,,,
+,,,ZST OFF,"""All Zone Stereo"" direct Control",MNZST OFF<CR>,<-,,,,,
+,,,ZST?<CR>,Return MNZST status,MNZST?<CR>,,,,,,
+,,,,,,MNZST ON<CR>,,,,,
+,,,,,,MNZST OFF<CR>,,,,,
+,,SY,REMOTE LOCK ON,REMOTE CONTROL LOCK ON/OFF,SYREMOTE LOCK ON<CR>,<-,,,,,
+,,,REMOTE LOCK OFF,,SYREMOTE LOCK OFF<CR>,<-,,,,,
+,,,PANEL LOCK ON,PANEL BUTTON(Except MASTER VOL.)CONTROL LOCK ON,SYPANEL LOCK ON<CR>,<-,,,,,
+,,,PANEL+V LOCK ON,PANEL BUTTON & MASTER VOL. CONTROL LOCK ON ,SYPANEL+V LOCK ON<CR>,<-,,,,,
+,,,PANEL LOCK OFF,PANEL BUTTON & MASTER VOL. CONTROL LOCK OFF,SYPANEL LOCK OFF<CR>,<-,,,,,
+,,UG,IDN,"ID Number for UPGRADE is displayed on FL Display
+************:12-digit ID Number",UGIDN<CR>,,,,,,
+,,,,,,UGIDN ************<CR>,,,,,
+,,,,,,UGIDN NG<CR>,,,,,
+,,DIM,BRI,Dimmer = Bright,DIM　BRI<CR>,<-,,,,,
+,,,DIM,Dimmer = Dim,DIM　DIM<CR>,<-,,,,,
+,,,DAR,Dimmer = Dark,DIM　DAR<CR>,<-,,,,,
+,,,OFF,Dimmer = Off,DIM　OFF<CR>,<-,,,,,
+,,,SEL,Dimmer setting select(Toggle) Bright→Dim→Dark→Off,DIM　SEL<CR>,<-,,,,,
+,,,?,Return DIM Status,DIM　?<CR>,<-,,,,,

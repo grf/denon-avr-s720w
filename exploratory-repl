@@ -1,0 +1,126 @@
+#!/usr/bin/env ruby
+
+# TODO: add ~/.avrrc for initial commands to run
+
+READ_TIMEOUT = 0.05  # seconds, 50 ms seems about right
+CONNECTION_TIMEOUT = 0.5 # seconds
+HISTORY_FILENAME = File.join(ENV['HOME'], '.avr_history')
+MAX_HISTORY = 2000 # max historical commands to read from and save to HISTORY_FILENAME
+
+require 'socket'
+require 'timeout'
+require 'readline'
+
+# TODO: just subclass a particular kind of AVR - say my denon or vsx - from this
+
+class AVR
+  include Timeout
+
+  DEBUG = false
+  CR = "\r"         # "\r", "\r\n"
+
+  attr_reader :connected
+
+  def initialize(hostname = 'denon.sacred.net', port = 23)
+    @hostname = hostname
+    @port = port
+    Socket.gethostbyname(@hostname) unless @hostname =~ %r{^\d{3}\.\d{3}\.\d{3}\.\d{3}$}  # hack to make following timeout work
+    timeout(CONNECTION_TIMEOUT) do
+      @socket = TCPSocket::new(@hostname, @port)
+    end
+    @connected = true
+    @buff = ''
+  rescue => e
+    @connected = false
+    STDERR.puts "Error connecting to #{hostname}:#{port} - #{e.message}"
+  end
+
+  def close
+    @socket.close unless @socket.closed?
+  end
+
+  # TODO: Catch WaitWritable and retry, bail on connection error
+
+  def write(str)
+    @socket.write str + CR
+  end
+
+  # remove any data queued up by the AVR
+
+  def drain()
+    while self.read(0.005) != ''   # not sure how low I can go here...
+    end
+  end
+
+  REDUNDS = 3
+
+  def read(timeout = READ_TIMEOUT)
+    count = 0
+    debug = []
+    while count < REDUNDS
+      results = IO.select([ @socket ], nil, nil, timeout)
+      debug.push results.inspect
+      if (results and results[0].include? @socket)  # results nil on timeout
+        @buff += @socket.recv(512)
+      else
+        count += 1 # this denon unit is *slow*, do at least REDUNDS times w/o responses (use a short READ_TIMEOUT)
+      end
+    end
+    puts "read: #{debug.inspect}" if DEBUG
+    if @buff =~ /^(.*#{CR})(.*)$/m      # network responses can split at odd boundries; check for completed messages ending with CR.
+       @buff = $2                       # save potential partial response for later..
+       return $1
+    end
+    return ''
+  end
+end
+
+def history_retrieve()
+  lines = []
+  open(HISTORY_FILENAME, 'a+') do |fh|
+    while line = fh.gets
+      lines.push line.strip
+    end
+  end
+  limit = [ lines.length, MAX_HISTORY ].min
+  lines[-limit .. -1].each { |line| Readline::HISTORY.push line }
+rescue => e
+  STDERR.puts "Error when reading history from #{HISTORY_FILENAME}: #{e}"
+end
+
+def history_save()
+  limit = [ Readline::HISTORY.length, MAX_HISTORY ].min
+  open(HISTORY_FILENAME, 'w') do |fh|
+    fh.write Readline::HISTORY.entries[-limit .. -1].join("\n")
+  end
+rescue => e
+  STDERR.puts "Error when saving history to #{HISTORY_FILENAME}: #{e}"
+end
+
+def repl(avr)
+  last_line = nil
+  loop do
+    line = Readline::readline('avr> ')
+    break if line.nil?
+    next if line.empty?
+    Readline::HISTORY.push(line) if line != last_line  # TODO: need to clear on hsitory_save() instead/also
+    avr.write line
+    response  = avr.read
+    puts response.inspect unless response.empty?
+    last_line = line
+  end
+end
+
+# main()
+
+$0 = 'AVR'
+
+STDOUT.sync = true
+STDERR.sync = true
+
+avr = AVR.new
+exit -1 unless avr.connected
+
+history_retrieve()
+repl(avr)
+history_save()
