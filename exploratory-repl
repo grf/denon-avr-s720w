@@ -4,8 +4,8 @@ require 'socket'
 require 'timeout'
 require 'readline'
 
-# TODO: we really need a separate thread garning data from the unit. or not.
-# TODO: add ~/.avrrc for initial commands to run
+# TODO: we really need a separate thread garning data from the unit. Or not.
+# TODO: add ~/.avrrc for initial commands to run.
 
 CONNECTION_TIMEOUT = 1 # seconds we'll wait for a connection
 
@@ -89,7 +89,7 @@ def history_retrieve()
   limit = [ lines.length, MAX_HISTORY ].min
   lines[-limit .. -1].each { |line| Readline::HISTORY.push line }
 rescue => e
-  STDERR.puts "Error when reading history from #{HISTORY_FILENAME}: #{e}"
+  STDERR.puts "Error encountered when reading history from #{HISTORY_FILENAME}: #{e}"
 end
 
 # Save readline data to an AVR command history file
@@ -100,12 +100,13 @@ def history_save()
     fh.write Readline::HISTORY.entries[-limit .. -1].join("\n")
   end
 rescue => e
-  STDERR.puts "Error when saving history to #{HISTORY_FILENAME}: #{e}"
+  STDERR.puts "Error encountered when saving history to #{HISTORY_FILENAME}: #{e}"
 end
 
 
 # Main read-eval-print loop: prompt for a command, write it to the
-# AVR, get a response and print it. Rinse and repeat.
+# AVR, get a response and print it. Rinse and repeat. An empty command
+# does a request to get any data queued on the AVR.
 
 def repl(avr)
   last_line = nil
