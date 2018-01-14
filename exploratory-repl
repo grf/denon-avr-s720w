@@ -1,15 +1,19 @@
 #!/usr/bin/env ruby
 
-# TODO: add ~/.avrrc for initial commands to run
-
-READ_TIMEOUT = 0.05  # seconds, 50 ms seems about right
-CONNECTION_TIMEOUT = 0.5 # seconds
-HISTORY_FILENAME = File.join(ENV['HOME'], '.avr_history')
-MAX_HISTORY = 2000 # max historical commands to read from and save to HISTORY_FILENAME
-
 require 'socket'
 require 'timeout'
 require 'readline'
+
+# TODO: we really need a separate thread garning data from the unit. or not.
+# TODO: add ~/.avrrc for initial commands to run
+
+CONNECTION_TIMEOUT = 1 # seconds we'll wait for a connection
+
+READ_TIMEOUT = 0.100   # seconds, 50 ms seems to miss some return values, which are confusingly added to the next read
+REDUNDS = 2            # number of times we'll poll the denon unit for a response (each poll using READ_TIMEOUT seconds)
+
+HISTORY_FILENAME = File.join(ENV['HOME'], '.avr_history')
+MAX_HISTORY = 2000 # max historical commands to read from and save to HISTORY_FILENAME
 
 # TODO: just subclass a particular kind of AVR - say my denon or vsx - from this
 
@@ -52,8 +56,6 @@ class AVR
     end
   end
 
-  REDUNDS = 3
-
   def read(timeout = READ_TIMEOUT)
     count = 0
     debug = []
@@ -75,6 +77,8 @@ class AVR
   end
 end
 
+# Prime readline data from an AVR command history file
+
 def history_retrieve()
   lines = []
   open(HISTORY_FILENAME, 'a+') do |fh|
@@ -88,6 +92,8 @@ rescue => e
   STDERR.puts "Error when reading history from #{HISTORY_FILENAME}: #{e}"
 end
 
+# Save readline data to an AVR command history file
+
 def history_save()
   limit = [ Readline::HISTORY.length, MAX_HISTORY ].min
   open(HISTORY_FILENAME, 'w') do |fh|
@@ -97,17 +103,22 @@ rescue => e
   STDERR.puts "Error when saving history to #{HISTORY_FILENAME}: #{e}"
 end
 
+
+# Main read-eval-print loop: prompt for a command, write it to the
+# AVR, get a response and print it. Rinse and repeat.
+
 def repl(avr)
   last_line = nil
   loop do
     line = Readline::readline('avr> ')
     break if line.nil?
-    next if line.empty?
-    Readline::HISTORY.push(line) if line != last_line  # TODO: need to clear on hsitory_save() instead/also
-    avr.write line
+    if not line.empty?
+      Readline::HISTORY.push(line) if line != last_line  # TODO: need to clear on hsitory_save() instead/also
+      avr.write line
+      last_line = line
+    end
     response  = avr.read
     puts response.inspect unless response.empty?
-    last_line = line
   end
 end
 
