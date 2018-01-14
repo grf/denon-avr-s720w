@@ -1,4 +1,17 @@
+game => avr-pi
+blu-ray => pc
+media => roku
+
+SIGAME  => /connects to avr-pi/
+SIMPLAY => /connects to roku/
+SIBD    => /connects to pc/
+
+
 PS? => "PWON\r"
     => "PWON\rZ2ON\r"
 
 MS? => "MSSTEREO\rPSDRC OFF\rPSLFE 00\rPSBAS 50\rPSTRE 50\rPSTONE CTRL OFF\r"
+
+main zone:
+
+ZM?
